@@ -17,7 +17,7 @@ const home = () => {
     setScannedText(data);
     data && fetch(`https://world.openfoodfacts.net/api/v2/product/${data}`)
     .then((response) => response.json())
-    .then((responseJson) => {console.log (responseJson);})
+    .then((responseJson) => {console.log (responseJson);});
   };
 
   useEffect(() => {

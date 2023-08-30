@@ -41,7 +41,8 @@
     "react-native-screens": "~3.22.0",
     "react-native-web": "~0.19.6",
     "yup": "^1.2.0",
-    "expo-barcode-scanner": "~12.5.3"
+    "expo-barcode-scanner": "~12.5.3",
+    "@react-native-community/datetimepicker": "7.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
