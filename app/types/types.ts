@@ -11,11 +11,17 @@ type FormDataRegister = {
   confirmPassword: string;
 };
 
-interface ProductFormData {
+interface ProductFormDataScan {
   quantity: string;
-  date: Date | string ; // Vous pouvez également utiliser le type Date si vous préférez
-  // Ajoutez d'autres champs de données du produit ici si nécessaire
+  [key: string]: string | Date;
+}
+
+interface ProductFormData {
+  name: string;
+  quantity: string;
+  date: Date;
 }
 
 
-export { FormDataLogin, FormDataRegister, ProductFormData}
+
+export { FormDataLogin, FormDataRegister, ProductFormDataScan,ProductFormData}

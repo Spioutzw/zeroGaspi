@@ -1,65 +1,103 @@
-import { StyleSheet, View } from "react-native";
-import { Button, Text } from "react-native-paper";
-import React, { useState, useEffect } from "react";
-import { Camera, CameraType } from "expo-camera";
-import { BarCodeScanner } from 'expo-barcode-scanner';
+import React, { useState } from 'react';
+import { useForm, Controller } from 'react-hook-form';
+import { StyleSheet, View, Text, TextInput, Button, Platform } from 'react-native';
+import { useRouter } from 'expo-router';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import { ProductFormData } from '../types/types';
 
-const home = () => {
-  const [scanned, setScanned] = useState<boolean | string>(false);
-  const [scannedText, setScannedText] = useState<string>("Not yet Scanned");
-  const [quantity, setQuantity] = useState<string>("");
+const Home = () => {
+  const navigation = useRouter();
+  const { control, handleSubmit, setValue } = useForm<ProductFormData>();
+  const [date, setDate] = useState(new Date());
+  const [show, setShow] = useState(false);
 
-  const typeCamera = CameraType.back
-
-  const handleBarCodeScanned = ({type,data}:any) => {
-    console.log(data);
-    setScanned(true);
-    setScannedText(data);
-    data && fetch(`https://world.openfoodfacts.net/api/v2/product/${data}`)
-    .then((response) => response.json())
-    .then((responseJson) => {console.log (responseJson);});
+  const handleScanPress = () => {
+    navigation.push('/(tabs)/ScanCode');
   };
 
-  useEffect(() => {
-  }, []);
+  const showDatepicker = () => {
+    setShow(true);
+  };
+
+  const onSubmit = (data:ProductFormData) => {
+    console.log(data);
+    // Ajouter le produit manuellement
+    // ...
+  };
 
   return (
     <View style={styles.container}>
-      <Camera 
-       barCodeScannerSettings={{
-        barCodeTypes: [BarCodeScanner.Constants.BarCodeType.ean13],
+      <Text style={styles.instructions}>
+        Pour ajouter un produit, scannez-le ou ajoutez-le manuellement en remplissant le formulaire ci-dessous.
+      </Text>
 
-       }}
-        onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-        type={typeCamera}
-        style={styles.camera}
+      <Controller
+        name="name"
+        control={control}
+        defaultValue=""
+        render={({ field: { onChange, value } }) => (
+          <TextInput
+            style={styles.input}
+            placeholder="Nom du produit"
+            onChangeText={onChange}
+            value={value}
+          />
+        )}
       />
-      {scanned && (
-        <Button onPress={() => setScanned(false)}>
-          <Text>Scan</Text>
-        </Button>
-      )}
-      <Text style={{ fontSize: 30 }}>{scannedText}</Text>
+      <Controller
+        name="quantity"
+        control={control}
+        defaultValue=""
+        render={({ field: { onChange, value } }) => (
+          <TextInput
+            style={styles.input}
+            placeholder="Quantité"
+            onChangeText={onChange}
+            value={value}
+            
+          />
+        )}
+      />
+      <Controller
+        name="date"
+        control={control}
+        defaultValue={date}
+        render={({ field: { onChange, value } }) => (
+          <View>
+            <Button title="Sélectionner la date de péremption" onPress={showDatepicker} />
+            {show && (
+              <DateTimePicker
+                testID="dateTimePicker"
+                value={new Date(value)}
+                mode="date"
+                display="default"
+                onChange={onChange}
+              />
+            )}
+          </View>
+        )}
+      />
+      <Button title="Ajouter le produit" onPress={handleSubmit(onSubmit)} />
+      <Button title="Scanner le produit" onPress={handleScanPress} />
     </View>
   );
 };
 
-export default home;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    padding: 16,
   },
-  Scanner: {
-    width: "70%",
-    height: "50%",
-    backgroundColor: "black",
+  instructions: {
+    marginBottom: 16,
   },
-  camera: {
-    width: "100%",
-    height: "90%",
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginBottom: 16,
+    paddingLeft: 8,
   },
 });
+
+export default Home;
