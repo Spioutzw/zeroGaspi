@@ -1,7 +1,8 @@
 // Import the functions you need from the SDKs you need
-import { FirebaseApp, FirebaseOptions, initializeApp } from "firebase/app";
+import { FirebaseApp, initializeApp } from "firebase/app";
 import { Auth, getAuth } from "firebase/auth";
-import { Firestore, getFirestore } from "firebase/firestore";
+import { Database, getDatabase } from "firebase/database";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -18,15 +19,16 @@ const firebaseConfig = {
 
   messagingSenderId: "743847777990",
 
-  appId: "1:743847777990:web:74511e755115eec007a9c7"
+  appId: "1:743847777990:web:74511e755115eec007a9c7",
+
+  databaseURL: "https://zerogaspi-fa710-default-rtdb.europe-west1.firebasedatabase.app"
 
 };
 
 
+
 // Initialize Firebase
-const app: FirebaseApp = initializeApp(firebaseConfig);
 
-const auth: Auth = getAuth(app);
-const db:Firestore = getFirestore(app);
 
-export { auth, db,app };
+
+export { firebaseConfig };

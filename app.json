@@ -32,7 +32,11 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router","@react-native-google-signin/google-signin","expo-barcode-scanner","expo-camera"
+      "expo-router",
+      "@react-native-google-signin/google-signin",
+      "expo-barcode-scanner",
+      ["expo-camera",{"cameraPermission": "Autorisez vous zeroGaspi à utiliser votre caméra" }],
+      "expo-notifications"
     ],
     "experiments": {
       "typedRoutes": true

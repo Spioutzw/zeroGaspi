@@ -7,7 +7,7 @@ import { View } from "../../components/Themed";
 const blurhash =
   "|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[";
 
-export default function TabOneScreen() {
+export default function index() {
   return (
       <View style={styles.container}>
         <Image
@@ -34,8 +34,8 @@ export default function TabOneScreen() {
             pour faire un pas de plus vers un monde sans gaspillage alimentaire
             !
           </Text>
-          <Link style={styles.button} href={"/(tabs)/Login"}>
-            <Button buttonColor="white" textColor="#83B39F" mode="contained">Get Starded</Button>
+          <Link   asChild style={styles.button} href={"/(tabs)/Login"}>
+            <Button textColor="#83B39F" buttonColor="white" mode="contained">Get Starded</Button>
           </Link>
         </View>
       </View>

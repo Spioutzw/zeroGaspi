@@ -9,4 +9,6 @@ interface SignupData {
     password: string;
   }
 
+  
+
     export type { SignupData, SigninData };

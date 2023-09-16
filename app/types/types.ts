@@ -12,16 +12,28 @@ type FormDataRegister = {
 };
 
 interface ProductFormDataScan {
-  quantity: string;
-  [key: string]: string | Date;
+  quantity: number;
+  [key: number]: string | Date;
 }
 
 interface ProductFormData {
   name: string;
+  quantity: number;
+}
+
+interface Product {
+  id: string;
+  name: string;
+  expirationDates: (string | Date)[];
+  notifications: {
+    responsesByDate : {
+      [key: string]: string[]
+    }
+  };
   quantity: string;
-  date: Date;
+  // Ajoutez d'autres propriétés de produit ici
 }
 
 
 
-export { FormDataLogin, FormDataRegister, ProductFormDataScan,ProductFormData}
+export { FormDataLogin, FormDataRegister, ProductFormDataScan,ProductFormData,Product}

@@ -1,47 +1,48 @@
 {
-  "project_info": {
-    "project_number": "743847777990",
-    "project_id": "zerogaspi-fa710",
-    "storage_bucket": "zerogaspi-fa710.appspot.com"
-  },
-  "client": [
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:743847777990:android:68bb29835f7c347b07a9c7",
-        "android_client_info": {
-          "package_name": "com.mathend.zeroGaspi"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "743847777990-q5fo8omg363onhn9icabvrqbutdkf2pm.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.mathend.zeroGaspi",
-            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+    "project_info": {
+      "project_number": "743847777990",
+      "firebase_url": "https://zerogaspi-fa710-default-rtdb.europe-west1.firebasedatabase.app",
+      "project_id": "zerogaspi-fa710",
+      "storage_bucket": "zerogaspi-fa710.appspot.com"
+    },
+    "client": [
+      {
+        "client_info": {
+          "mobilesdk_app_id": "1:743847777990:android:68bb29835f7c347b07a9c7",
+          "android_client_info": {
+            "package_name": "com.mathend.zeroGaspi"
           }
         },
-        {
-          "client_id": "743847777990-ik2ihvpj930eglsri9b9setvarjhrpu9.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDlXki1oQLERRvTf8-mvd_RiDDNjKhqMjY"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "743847777990-bfm4ieomudcb598eh9jm90glhrngq7fl.apps.googleusercontent.com",
-              "client_type": 3
+        "oauth_client": [
+          {
+            "client_id": "743847777990-q5fo8omg363onhn9icabvrqbutdkf2pm.apps.googleusercontent.com",
+            "client_type": 1,
+            "android_info": {
+              "package_name": "com.mathend.zeroGaspi",
+              "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
             }
-          ]
+          },
+          {
+            "client_id": "743847777990-ik2ihvpj930eglsri9b9setvarjhrpu9.apps.googleusercontent.com",
+            "client_type": 3
+          }
+        ],
+        "api_key": [
+          {
+            "current_key": "AIzaSyDlXki1oQLERRvTf8-mvd_RiDDNjKhqMjY"
+          }
+        ],
+        "services": {
+          "appinvite_service": {
+            "other_platform_oauth_client": [
+              {
+                "client_id": "743847777990-bfm4ieomudcb598eh9jm90glhrngq7fl.apps.googleusercontent.com",
+                "client_type": 3
+              }
+            ]
+          }
         }
       }
-    }
-  ],
-  "configuration_version": "1"
-}
+    ],
+    "configuration_version": "1"
+  }

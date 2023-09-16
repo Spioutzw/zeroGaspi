@@ -3,10 +3,12 @@ import { Button, TextInput, Text } from "react-native-paper";
 import { useForm, Controller, set } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import React from "react";
-import { Link } from "expo-router";
+import React, { useEffect } from "react";
 import { FormDataRegister } from "../types/types";
 import { signUp } from "../../auth/auth";
+import { db } from "./_layout";
+import { GoogleSigninButton} from '@react-native-google-signin/google-signin';
+
 
 const schema = yup.object().shape({
   name: yup.string().required("le nom est requis"),
@@ -23,7 +25,6 @@ const FormRegister = () => {
 
     const [error, setError] = React.useState<string | null>(null);
 
-
   const {
     control,
     handleSubmit,
@@ -33,12 +34,16 @@ const FormRegister = () => {
   });
   const onSubmit = (data: FormDataRegister) => {
     setError(null);
-    signUp(data.email,data.password,setError)
+    signUp(data.email,data.password,data.name,setError)
     .catch(error => {
       return error
     })
        
   };
+
+  useEffect(() => {
+ console.log(db)
+  },[])
 
   return (
     <View style={styles.container}>
@@ -104,19 +109,24 @@ const FormRegister = () => {
         defaultValue=""
       />
       <Text style={styles.errorInput}>{errors.confirmPassword?.message}</Text>
+
+
       <Button
         style={styles.button}
         mode="contained"
         onPress={handleSubmit(onSubmit)}
       >
-        Submit
+        Envoyer
       </Button>
 
      {error && <Text style={styles.errorInput}>{error}</Text>}
 
-      <Link  href={"/(tabs)/Login"}>
-        Deja inscrit ? Connectez-vous
-      </Link>
+     
+        <GoogleSigninButton
+          size={GoogleSigninButton.Size.Icon}
+          color={GoogleSigninButton.Color.Dark}
+          
+        />
     </View>
   );
 };
@@ -140,7 +150,7 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 40,
-    margin: 12,
+    margin: 5,
     borderWidth: 1,
     padding: 10,
     width: "70%",

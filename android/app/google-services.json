@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "743847777990",
+    "firebase_url": "https://zerogaspi-fa710-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "zerogaspi-fa710",
     "storage_bucket": "zerogaspi-fa710.appspot.com"
   },
@@ -14,11 +15,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "743847777990-hgbhbst5h93pblgusmvv0cc29ar6sr67.apps.googleusercontent.com",
+          "client_id": "743847777990-q5fo8omg363onhn9icabvrqbutdkf2pm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.mathend.zeroGaspi",
-            "certificate_hash": "a1f246954bb513e7aefbc66db74f5418854f8fb2"
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
           }
         },
         {
