@@ -14,4 +14,4 @@ local.properties
 # Bundle artifacts
 *.jsbundle
 
-google-services.json
+.google-services.json
