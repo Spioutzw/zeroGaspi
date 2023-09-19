@@ -30,6 +30,7 @@ interface Product {
       [key: string]: string[]
     }
   };
+  imageUrl: string;
   quantity: string;
   // Ajoutez d'autres propriétés de produit ici
 }

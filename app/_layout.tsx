@@ -46,15 +46,11 @@ export default function RootLayout() {
   return <RootLayoutNav />;
 }
 
-function RootLayoutNav() {
+const RootLayoutNav = () => {
   const colorScheme = useColorScheme();
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen
-          name="(tabs)"
-          options={{ headerShown: false, title: undefined }}
-        />
+      <Stack screenOptions={{headerBackVisible: true ,headerShown: false}} > 
       </Stack>
     </ThemeProvider>
   );

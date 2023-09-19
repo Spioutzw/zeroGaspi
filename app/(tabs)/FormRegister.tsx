@@ -8,6 +8,7 @@ import { FormDataRegister } from "../types/types";
 import { signUp } from "../../auth/auth";
 import { db } from "./_layout";
 import { GoogleSigninButton} from '@react-native-google-signin/google-signin';
+import { Stack } from "expo-router";
 
 
 const schema = yup.object().shape({
@@ -47,6 +48,11 @@ const FormRegister = () => {
 
   return (
     <View style={styles.container}>
+      <Stack.Screen
+        options={{
+          title: 'Inscription',
+        }}
+      />
       <Text variant="headlineSmall">Inscription</Text>
       <Controller
         control={control}

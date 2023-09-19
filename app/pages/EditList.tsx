@@ -3,7 +3,7 @@ import { View, StyleSheet, ScrollView } from "react-native";
 import { Text, Button, TextInput } from "react-native-paper";
 import { db,auth } from "../(tabs)/_layout"; 
 import { ref, onValue, off, update, remove } from "firebase/database";
-import { router, useLocalSearchParams } from "expo-router";
+import { Stack, router, useLocalSearchParams, useNavigation } from "expo-router";
 import DateTimePicker, {
   DateTimePickerEvent,
 } from "@react-native-community/datetimepicker";
@@ -16,6 +16,7 @@ const EditProduct: React.FC = () => {
   const params = useLocalSearchParams();
 
   const user = auth.currentUser;
+  const navigation = useNavigation();
 
   useEffect(() => {
     const id = params.id;
@@ -37,6 +38,7 @@ const EditProduct: React.FC = () => {
         off(productsRef);
       };
     }
+   
   }, []);
 
   const [editedProduct, setEditedProduct] = useState<Product | null>(null);
@@ -190,6 +192,12 @@ const EditProduct: React.FC = () => {
 
   return (
     <ScrollView>
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          title: `edition ${editedProduct?.name}`,
+        }}
+      />
       <View style={styles.container}>
         {editedProduct ? (
           <>

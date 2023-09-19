@@ -18,7 +18,7 @@ const scheduleExpirationNotifications = (
       const notifyDate = addDays(expirationDate, -i);
 
       // Ajuster l'heure pour 10h00
-      notifyDate.setHours(15, 36, 0, 0);
+      notifyDate.setHours(10, 0, 0, 0);
 
       if (i === 0 && notifyDate.toDateString() === currentDate.toDateString()) {
 

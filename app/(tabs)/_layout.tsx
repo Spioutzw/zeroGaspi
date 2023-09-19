@@ -38,7 +38,6 @@ export default function TabLayout() {
   const [currentUser, setCurrentUser] = useState<User|null>(null);
 
   useEffect(() => {
-    
     auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
     });

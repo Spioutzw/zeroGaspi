@@ -12,7 +12,10 @@ const ScanCode = () => {
   const [scanned, setScanned] = useState<boolean | string>(false);
   const [scannedText, setScannedText] = useState<string>("Not yet Scanned");
   const [permission, requestPermission] = Camera.useCameraPermissions();
-  const [productName, setProductName] = useState<string>("");
+  const [product, setProduct] = useState({
+    productName: '',
+    productImageUrl: undefined || '',
+  });
   const [isFormVisible, setIsFormVisible] = useState<boolean>(false);
 
   const isFocused = useIsFocused();
@@ -49,7 +52,10 @@ const ScanCode = () => {
               },
             });
           } else {
-            setProductName(responseJson.product.product_name_fr);
+            setProduct({
+              productName:responseJson.product.product_name_fr,
+              productImageUrl: responseJson.product.image_front_thumb_url
+            });
             setIsFormVisible(true);
           }
         })
@@ -76,8 +82,8 @@ const ScanCode = () => {
       {isFormVisible ? (
         <QuantiteForm
           onFormClose={() => setIsFormVisible(false)}
-          productName={productName}
           userId={userId}
+          product={product}
         />
       ) : (
         <>

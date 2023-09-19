@@ -11,7 +11,7 @@ import {
   Divider,
 } from "react-native-paper";
 import { StyleSheet, View } from "react-native";
-import { useLocalSearchParams, Link, router } from "expo-router";
+import { useLocalSearchParams, Link, router,useNavigation, Stack } from "expo-router";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { ProductFormData } from "../types/types";
 import { scheduleExpirationNotifications } from "../utils/functions";
@@ -32,14 +32,19 @@ const Home = () => {
   const params = useLocalSearchParams();
   
   
+  
   useEffect(() => {
+
     const user = getAuth();
     user.onAuthStateChanged((user) => {
       if (user === null) {
         router.push('/(tabs)/Login')
       } 
     });
-  });
+     
+    
+     
+  },[]);
 
   const {
     control,
@@ -93,6 +98,11 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
+      <Stack.Screen
+        options={{
+          title: 'Home',
+        }}
+      />
       <Text style={styles.instructions}>
         Pour ajouter un produit, scannez-le ou ajoutez-le manuellement en
         remplissant le formulaire ci-dessous.

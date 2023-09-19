@@ -8,6 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { FormDataLogin } from "../types/types";
 import { signIn } from "../../auth/auth";
+import { Stack } from "expo-router";
 
 const schema = yup.object().shape({
   email: yup.string().email().required("l'email est requis"),
@@ -31,6 +32,11 @@ const Login = () => {
 
   return (
     <View style={styles.container}>
+      <Stack.Screen
+        options={{
+          title: 'Connexion',
+        }}
+      />
       <Text variant="headlineSmall">Login</Text>
       <Controller
         control={control}
